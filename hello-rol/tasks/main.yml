@@ -9,7 +9,11 @@
 
 - name: Ejecución de manera remota
   shell: | 
-    echo "Usuario: {name}!"
+    echo "Usuario: {{ name }}!"
+  register: print_console
+
+- debug:
+    var: print_console.stdout
 
 - name: Transferencia del script
   copy:
