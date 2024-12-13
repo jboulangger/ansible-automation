@@ -1,0 +1,5 @@
+---
+- name: Monitoreo Collection
+  hosts: all
+  roles:
+    - hello-rol

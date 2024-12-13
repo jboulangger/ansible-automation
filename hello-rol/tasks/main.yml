@@ -1,0 +1,21 @@
+---
+- name: Inicio de ejecución
+  debug:
+    msg: Playbook para pruebas de ejecución remota
+
+- name: Definiendo las variables
+  set_fact:
+    name: User
+
+- name: Ejecución de manera remota
+  shell: | 
+    echo "Usuario: {name}!"
+
+- name: Transferencia del script
+  copy:
+    src: "{{ playbook_dir }}/hello-rol/files/main.sh"
+    dest: /tmp/main.sh
+
+- name: Ejecución remota del script
+  shell: | 
+    /bin/bash /tmp/main.sh
